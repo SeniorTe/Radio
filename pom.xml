@@ -65,9 +65,9 @@
                                 <rule>
                                     <limits>
                                         <limit>
-                                            <counter>LINE</counter>
+                                            <counter>BRANCH</counter>
                                             <value>COVEREDRATIO</value>
-                                            <minlimit>100%</minlimit>
+                                            <minimum>100%</minimum>
                                         </limit>
                                     </limits>
                                 </rule>
