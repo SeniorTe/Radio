@@ -164,21 +164,14 @@ public class RadioTest {
     public void shouldAbutMaxLimitVolume() {
         Radio radio = new Radio();
 
-        radio.IncreaseVolume1p();
-        radio.IncreaseVolume1p();
-        radio.IncreaseVolume1p();
-        radio.IncreaseVolume1p();
-        radio.IncreaseVolume1p();
-        radio.IncreaseVolume1p();
-        radio.IncreaseVolume1p();
-        radio.IncreaseVolume1p();
-        radio.IncreaseVolume1p();
+        radio.setSoundVolume(98);
+
         radio.IncreaseVolume1p();
         radio.IncreaseVolume1p();
         radio.IncreaseVolume1p();
 
 
-        int expected = 10;
+        int expected = 100;
         int actual = radio.getSoundVolume();
 
         Assertions.assertEquals(expected, actual);
@@ -211,5 +204,16 @@ public class RadioTest {
         int actual = radio.getSoundVolume();
 
         Assertions.assertEquals(expected, actual);
+    }
+
+    @Test
+    public void test() {
+        Radio radio = new Radio(25);
+
+        radio.setStationNumber(50);
+
+        Assertions.assertEquals(0, radio.getStationNumber());
+
+        Assertions.assertEquals(24, radio.getMaxStationNumber());
     }
 }

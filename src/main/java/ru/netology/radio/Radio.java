@@ -1,8 +1,33 @@
 package ru.netology.radio;
 
 public class Radio {
-    private int stationNumber;
+
+    private int amountStation = 10;
+    private int maxStationNumber = amountStation - 1;
+    private int minStationNumber = 0;
+    private int stationNumber = minStationNumber;
+
+    public Radio() {
+    }
+
+    public Radio(int size) {
+        amountStation = size;
+        maxStationNumber = amountStation - 1;
+    }
+
     private int soundVolume;
+    private int maxSoundVolume = 100;
+    private int minSoundVolume = 0;
+
+    public void setSoundVolume(int newSoundVolume) {
+        soundVolume = newSoundVolume;
+        return;
+    }
+
+
+    public int getMaxStationNumber() {
+        return maxStationNumber;
+    }
 
     public int getStationNumber() {
         return stationNumber;
@@ -13,40 +38,40 @@ public class Radio {
     }
 
     public void IncreaseVolume1p() {
-        if (soundVolume < 10) {
+        if (soundVolume < maxSoundVolume) {
             soundVolume = soundVolume + 1;
         }
-        if (soundVolume >= 10) {
+        if (soundVolume >= maxSoundVolume) {
             return;
         }
     }
 
     public void ReduceVolume1p() {
-        if (soundVolume > 0) {
+        if (soundVolume > minSoundVolume) {
             soundVolume = soundVolume - 1;
         }
     }
 
     public void setStationNumber(int newStationNumber) {
-        if (newStationNumber < 0) {
+        if (newStationNumber < minStationNumber) {
             return;
         }
-        if (newStationNumber > 9) {
+        if (newStationNumber > maxStationNumber) {
             return;
         }
         stationNumber = newStationNumber;
     }
 
     public void NextStationNumber() {
-        if (stationNumber == 9) {
-            stationNumber = 0;
+        if (stationNumber == maxStationNumber) {
+            stationNumber = minStationNumber;
         } else stationNumber = stationNumber + 1;
         return;
     }
 
     public void PrevStationNumber() {
-        if (stationNumber == 0) {
-            stationNumber = 9;
+        if (stationNumber == minStationNumber) {
+            stationNumber = maxStationNumber;
         } else stationNumber = stationNumber - 1;
         return;
     }
